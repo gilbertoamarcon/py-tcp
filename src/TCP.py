@@ -81,7 +81,7 @@ class TCP:
 
 			# Waiting for client request
 			request = conn.recv(self.buffer_size)
-			request = request.decode('ascii')
+			request = ''.join(e for e in request if e.isalnum())
 			self.printf('Request: %s'%request)
 
 			# Servicing request
