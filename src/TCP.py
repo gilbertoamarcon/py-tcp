@@ -2,6 +2,7 @@
 
 import socket
 import threading
+import string
 
 class TCP:
 
@@ -81,7 +82,7 @@ class TCP:
 
 			# Waiting for client request
 			request = conn.recv(self.buffer_size)
-			request = ''.join(e for e in request if e.isalnum())
+			request = ''.join(e for e in request if e in string.printable)
 			self.printf('Request: %s'%request)
 
 			# Servicing request
