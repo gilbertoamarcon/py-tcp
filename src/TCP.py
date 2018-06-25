@@ -81,6 +81,7 @@ class TCP:
 
 			# Waiting for client request
 			request = conn.recv(self.buffer_size)
+			self.printf('Request: %s'%request)
 
 			# Servicing request
 			response = self.respond(request)
