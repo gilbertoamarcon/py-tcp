@@ -3,11 +3,12 @@
 import socket
 import threading
 import string
+import time
 
 class TCP:
 
 	def printf(self, str):
-		print '[%s@%s:%d] %s'%(self.mode.upper(),self.ip,self.port,str)
+		print '[%s@%s:%d:%.3f] %s'%(self.mode.upper(),self.ip,self.port,time.time(),str)
 
 	def __init__(
 			self,

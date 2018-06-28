@@ -63,6 +63,7 @@ def main():
 
 	# Keeps providing the most recent data
 	sim_update_secs = 0.010
+	rotation_freque = 0.010
 	if(tcp.mode=='server'):
 		t = 0.000
 		try:
@@ -70,10 +71,10 @@ def main():
 				tcp.database = {
 					'kayak_0': yaml.dump({
 							'Depth': 0.0,
-							'Latitude': 32.0 + math.sin(2*math.pi*t),
-							'Longitude': -119.0 + math.cos(2*math.pi*t),
-							'Salinity': 33.0 + math.sin(0.25*2*math.pi*t),
-							'Temperature': 16.0 + math.sin(0.50*2*math.pi*t),
+							'Latitude': 32.0 	+ math.sin(rotation_freque*2*math.pi*t),
+							'Longitude': -119.0	+ math.cos(rotation_freque*2*math.pi*t),
+							'Salinity': 33.0	+ math.sin(0.25*2*math.pi*t),
+							'Temperature': 16.0	+ math.sin(0.50*2*math.pi*t),
 							'w': 0.8757440268581766,
 							'x': 0.0,
 							'y': 0.0,
@@ -81,10 +82,10 @@ def main():
 						}),
 					'kayak_1': yaml.dump({
 							'Depth': 0.0,
-							'Latitude': 32.5 + math.sin(2*math.pi*t),
-							'Longitude': -119.5 + math.cos(2*math.pi*t),
-							'Salinity': 33.0 + math.sin(0.25*2*math.pi*t),
-							'Temperature': 16.0 + math.sin(0.50*2*math.pi*t),
+							'Latitude': 32.0 	+ math.cos(2*math.pi*t),
+							'Longitude': -119.0	+ math.sin(2*math.pi*t),
+							'Salinity': 33.0	+ math.sin(0.25*2*math.pi*t),
+							'Temperature': 16.0	+ math.sin(0.50*2*math.pi*t),
 							'w': 0.8757440268581766,
 							'x': 0.0,
 							'y': 0.0,
