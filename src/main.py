@@ -75,10 +75,10 @@ def main():
 							'Longitude': -119.0	+ math.cos(rotation_freque*2*math.pi*t),
 							'Salinity': 33.0	+ math.sin(0.25*2*math.pi*t),
 							'Temperature': 16.0	+ math.sin(0.50*2*math.pi*t),
-							'w': 0.8757440268581766,
+							'w': 1.0,
 							'x': 0.0,
 							'y': 0.0,
-							'z': 0.4827757237291713,
+							'z': 0.0,
 						}),
 					'kayak_1': yaml.dump({
 							'Depth': 0.0,
@@ -86,10 +86,10 @@ def main():
 							'Longitude': -119.0	+ math.sin(2*math.pi*t),
 							'Salinity': 33.0	+ math.sin(0.25*2*math.pi*t),
 							'Temperature': 16.0	+ math.sin(0.50*2*math.pi*t),
-							'w': 0.8757440268581766,
+							'w': 1.0,
 							'x': 0.0,
 							'y': 0.0,
-							'z': 0.4827757237291713,
+							'z': 0.0,
 						}),
 				}
 				t += sim_update_secs
