@@ -4,6 +4,9 @@
 from TCP import *
 import argparse
 import yaml
+import time
+import math
+
 
 def main():
 
@@ -52,22 +55,44 @@ def main():
 	if(tcp.mode=='client'):
 		try:
 			for i in range(15):
-				print i, tcp.request('glider-01')
-				print i, tcp.request('glider-02')
+				print i, yaml.load(tcp.request('kayak_0'))
+				time.sleep(0.5)
 		except:
 			pass
 
 
 	# Keeps providing the most recent data
+	sim_update_secs = 0.010
 	if(tcp.mode=='server'):
-		counter = 0
+		t = 0.000
 		try:
 			while True:
-				counter += 1
 				tcp.database = {
-					'glider-01': 'The glider-01 value is %d'%counter,
-					'glider-02': 'The glider-02 value is %d'%counter,
+					'kayak_0': yaml.dump({
+							'Depth': 0.0,
+							'Latitude': 32.0 + math.sin(2*math.pi*t),
+							'Longitude': -119.0 + math.cos(2*math.pi*t),
+							'Salinity': 33.0 + math.sin(0.25*2*math.pi*t),
+							'Temperature': 16.0 + math.sin(0.50*2*math.pi*t),
+							'w': 0.8757440268581766,
+							'x': 0.0,
+							'y': 0.0,
+							'z': 0.4827757237291713,
+						}),
+					'kayak_1': yaml.dump({
+							'Depth': 0.0,
+							'Latitude': 32.5 + math.sin(2*math.pi*t),
+							'Longitude': -119.5 + math.cos(2*math.pi*t),
+							'Salinity': 33.0 + math.sin(0.25*2*math.pi*t),
+							'Temperature': 16.0 + math.sin(0.50*2*math.pi*t),
+							'w': 0.8757440268581766,
+							'x': 0.0,
+							'y': 0.0,
+							'z': 0.4827757237291713,
+						}),
 				}
+				t += sim_update_secs
+				time.sleep(sim_update_secs)
 				
 		except:
 			tcp.exit_server()
