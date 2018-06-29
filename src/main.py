@@ -69,6 +69,7 @@ def main():
 		t = 0.000
 		try:
 			while True:
+				t = time.time()
 				tcp.database = {
 					'kayak_0': yaml.dump({
 							'Depth': 0.0,
@@ -76,6 +77,7 @@ def main():
 							'Longitude': -119.0	+ math.cos(kayak_rotation_freque*2*math.pi*t),
 							'Salinity': 33.0	+ math.sin(0.25*2*math.pi*t),
 							'Temperature': 16.0	+ math.sin(0.50*2*math.pi*t),
+							'Time': t,
 							'w': 1.0,
 							'x': 0.0,
 							'y': 0.0,
@@ -87,6 +89,7 @@ def main():
 							'Longitude': -119.0	+ math.sin(kayak_rotation_freque*2*math.pi*t),
 							'Salinity': 33.0	+ math.sin(0.25*2*math.pi*t),
 							'Temperature': 16.0	+ math.sin(0.50*2*math.pi*t),
+							'Time': t,
 							'w': 1.0,
 							'x': 0.0,
 							'y': 0.0,
@@ -98,6 +101,7 @@ def main():
 							'Longitude': -119.0	+ math.cos(glider_rotation_freque*2*math.pi*t),
 							'Salinity': 33.0	+ math.sin(0.25*2*math.pi*t),
 							'Temperature': 16.0	+ math.sin(0.50*2*math.pi*t),
+							'Time': t,
 							'w': 1.0,
 							'x': 0.0,
 							'y': 0.0,
@@ -109,6 +113,7 @@ def main():
 							'Longitude': -119.0	+ math.sin(glider_rotation_freque*2*math.pi*t),
 							'Salinity': 33.0	+ math.sin(0.25*2*math.pi*t),
 							'Temperature': 16.0	+ math.sin(0.50*2*math.pi*t),
+							'Time': t,
 							'w': 1.0,
 							'x': 0.0,
 							'y': 0.0,
